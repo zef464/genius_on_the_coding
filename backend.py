@@ -10,4 +10,3 @@ password = ''
 for x in range(PASSWORD_LENGTH):
     password += choice(printable)
 
-print(password)
