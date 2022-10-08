@@ -9,8 +9,6 @@ printable = digits + ascii_letters + punctuation
 host: Final[str] = '192.168.11.1'
 username: Final[str] = 'pi'
 password: Final[str] = 'butpass1014'
-ftp_port: Final[int] = 22
-
-FTP_SUCCESS_LOGIN: Final[str] = '230 Login successful.'
+ftp_port: Final[int] = 21
 
 wpa_supplicant: Final[str] = '/etc/wpa_supplicant/wpa_supplicant.conf'

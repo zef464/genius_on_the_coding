@@ -1,5 +1,5 @@
 from random import choice
-from ftplib import FTP
+import pysftp
 from constants import *
 
 new_password = ''
@@ -7,14 +7,13 @@ for x in range(PASSWORD_LENGTH):
 	new_password += choice(printable)
 
 # -----------------
+print(new_password)
 
-ftp = FTP(source_address=(host, ftp_port))  # connect to host, default port
-message = ftp.login(user=username, passwd=password)
+sftp = pysftp.Connection(host, username=username, password=password, port=ftp_port)
+print('step 0 ready')
 
-assert message == FTP_SUCCESS_LOGIN
-
-with open('wpa_supplicant.conf', 'w') as f:
-	ftp.retrlines(f'RETR {wpa_supplicant}', f.write)
+sftp.get(wpa_supplicant)
+print('step 1 ready')
 
 with open('wpa_supplicant.conf') as f:
 	lines = f.readlines()
@@ -24,11 +23,15 @@ with open('wpa_supplicant.conf') as f:
 		line = line[:line.index('psk=') + 4] + password
 		line_num = i
 		break
+print('step 2 ready')
 
 lines[line_num] = line
 
 with open('wpa_supplicant.conf', 'w') as f:
 	f.writelines(lines)
+print('step 3 ready')
 
-with open('wpa_supplicant.conf') as f:
-	ftp.storlines(f'STOR {wpa_supplicant}', f)
+sftp.put(wpa_supplicant)
+print('step 4 ready')
+
+sftp.close()
