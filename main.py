@@ -152,7 +152,7 @@ class Login(QWidget):
 
 	def lineedit_init(self):
 		self.user_line.setPlaceholderText('Please enter your email')
-		self.pwd_line.setPlaceholderText('Please enter your password')
+		self.pwd_line.setPlaceholderText('Please enter your new_password')
 		self.pwd_line.setEchoMode(QLineEdit.Password)
 
 		self.user_line.textChanged.connect(self.check_input_func)

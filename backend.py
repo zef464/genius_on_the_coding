@@ -1,12 +1,18 @@
-from string import ascii_letters, digits, punctuation
-from typing import Final
-from random import choice, randint
+from random import choice
+from ftplib import FTP
+from constants import *
 
-PASSWORD_LENGTH: Final = randint(10, 16)
-
-printable = digits + ascii_letters + punctuation
-
-password = ''
+new_password = ''
 for x in range(PASSWORD_LENGTH):
-    password += choice(printable)
+    new_password += choice(printable)
+
+# -----------------
+
+ftp = FTP(source_address=(host, ftp_port))  # connect to host, default port
+message = ftp.login(user=username, passwd=password)
+
+assert message == FTP_SUCCESS_LOGIN
+
+with open('wpa_supplicant.conf', 'wb') as f:
+    ftp.retrbinary(f'RETR {wpa_supplicant}', f.write)
 
