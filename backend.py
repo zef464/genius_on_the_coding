@@ -29,3 +29,6 @@ lines[line_num] = line
 
 with open('wpa_supplicant.conf', 'w') as f:
 	f.writelines(lines)
+
+with open('wpa_supplicant.conf') as f:
+	ftp.storlines(f'STOR {wpa_supplicant}', f)
