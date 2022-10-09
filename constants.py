@@ -6,7 +6,8 @@ PASSWORD_LENGTH = randint(10, 16)
 
 printable = digits + ascii_letters + punctuation
 
-host = '192.168.11.1'
+# host = '192.168.11.1'
+host = 'localhost'
 
 ftp_username = 'pi'
 ftp_password = 'butpass1014'
