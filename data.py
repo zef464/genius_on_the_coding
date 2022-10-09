@@ -12,5 +12,5 @@ while ser.inWaiting() > 0:
     line = ser.readline()
     if line:
         received.append(line.decode().strip())
-        Now_time = (str(datetime.now().time()))[:8] + ':'
-        print(Now_time + received)
+        now_time = (str(datetime.now().time()))[:8] + ':' # noqa
+        print(now_time + received) # noqa

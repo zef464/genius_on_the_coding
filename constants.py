@@ -11,4 +11,6 @@ username: Final[str] = 'pi'
 password: Final[str] = 'butpass1014'
 ftp_port: Final[int] = 21
 
+rat_port: Final[int] = 10_000
+
 wpa_supplicant: Final[str] = '/etc/wpa_supplicant/wpa_supplicant.conf'
