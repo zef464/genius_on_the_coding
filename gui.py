@@ -7,7 +7,7 @@ from constants import *
 class Ui_Dialog(object):  # noqa
 	def __init__(self, Dialog):  # noqa
 		Dialog.setObjectName("Dialog")
-		Dialog.resize(640, 480)
+		Dialog.resize(573, 300)
 		Dialog.setStyleSheet("background-color: rgb(0, 0, 0)")
 		font = QtGui.QFont()
 		font.setFamily("Niagara Solid")
