@@ -14,7 +14,7 @@ else:
 	host = '192.168.11.1'
 
 ftp_username = 'pi'
-ftp_password = 'butpass1014'
+ftp_password = 'butpass1014' # noqa
 ftp_port = 21
 
 rat_port = 10_000
