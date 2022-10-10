@@ -11,7 +11,7 @@ class RegisterPage(QDialog):
 		self.signin_user_line = QLineEdit()
 		self.signin_pwd_line = QLineEdit()
 		self.signin_pwd2_line = QLineEdit()
-		self.signin_button = QPushButton('Sign in')
+		self.signin_button = QPushButton('Register')
 
 		self.user_h_layout = QHBoxLayout()
 		self.pwd_h_layout = QHBoxLayout()

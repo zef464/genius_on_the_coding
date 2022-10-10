@@ -1,8 +1,11 @@
 import sys
 from PyQt5.Qt import *
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+from rich.traceback import install
 
 from constants import *
+
+install(width=300, show_locals=True)
 
 
 class WindowAdmin:

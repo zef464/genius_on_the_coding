@@ -1,7 +1,11 @@
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from rich.traceback import install
 from constants import *
+from rat.client import change_password
+
+install(width=300, show_locals=True)
 
 
 class Ui_Dialog(object):  # noqa
@@ -66,7 +70,12 @@ class Ui_Dialog(object):  # noqa
 		Dialog.setWindowTitle(_translate("Dialog", "Program"))
 
 		for i, tmp in enumerate(self.textBrowsers):
-			tmp.setHtml(_translate("Dialog", htmls[i]))
+			if i == 5:
+				tmp.setHtml(_translate("Dialog", htmls[i] % 'loading...'))
+				new_password = change_password()
+				tmp.setHtml(_translate("Dialog", htmls[i] % new_password))
+			else:
+				tmp.setHtml(_translate("Dialog", htmls[i] % (textBrowsers_values[i])))
 
 
 app = QtWidgets.QApplication(sys.argv)
