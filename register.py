@@ -4,7 +4,7 @@ from constants import *
 
 class RegisterPage(QDialog):
 	def __init__(self):
-		super(SigninPage, self).__init__()
+		super(RegisterPage, self).__init__()
 		self.signin_user_label = QLabel('E-mail:')
 		self.signin_pwd_label = QLabel('Password:')
 		self.signin_pwd2_label = QLabel('Password:')
