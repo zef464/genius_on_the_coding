@@ -40,11 +40,11 @@ textBrowsers_values = (# "Mac-адреса:", # noqa
 		               "Активный пароль:", # noqa
 		               "", # noqa
 		               "Данные:", # noqa
-		               "Привет)", # noqa
-		               "Как дела???", # noqa
-		               "^_^", # noqa
-		               "Координаты: 34, 56", # noqa
-		               "Пока!",) # noqa
+		               "Type: QRCODE", # noqa
+		               "Data: Hello world!", # noqa
+		               "X=100", # noqa
+		               "Y=120", # noqa
+		               " ",) # noqa
 """
 lineEdit_coords = ((70, 60, 201, 21), # noqa
 		           (70, 120, 201, 22), # noqa
