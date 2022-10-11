@@ -15,7 +15,7 @@ def generate_password():
 	return new_password
 
 
-def edit_config(new_password): # noqa
+def set_password(new_password): # noqa
 	with open(wpa_supplicant) as f:
 		lines = f.readlines()
 		for i, line in enumerate(lines):
@@ -32,8 +32,17 @@ def edit_config(new_password): # noqa
 		f.writelines(lines)
 
 
-new_password = generate_password()
-edit_config(new_password)
+def get_password():
+	with open(wpa_supplicant) as f:
+		lines = f.readlines()
+		for i, line in enumerate(lines):
+			line = line.strip('\n ')
+			if 'psk=' not in line:
+				continue
+			password = line[line.index('psk=') + 5:][:-1]
+			return password
+
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # noqa
 
@@ -47,6 +56,14 @@ while True:
 		sleep(0.1)
 
 print(f"[*] Connection is established successfully")
-s.send(new_password.encode())
+mode = s.recv(MAX_PASSWORD_BYTES).decode()
+
+if mode == 'change':
+	new_password = generate_password()
+	set_password(new_password)
+elif mode == 'get':
+	new_password = get_password()
+
+s.send(new_password.encode()) # noqa
 
 s.close()

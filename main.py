@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from rich.traceback import install
 
 from constants import *
+from rat.client import change_password
 
 install(width=300, show_locals=True)
 
@@ -61,6 +62,10 @@ class Login(QWidget):
 	def pushbutton_init(self):
 		self.login_button.setEnabled(False)
 		self.login_button.clicked.connect(self.check_login_func) # noqa
+
+	def get_password(self):
+		return change_password()
+		pass
 
 	def check_login_func(self):
 		password = USER_PWD.get(self.user_line.text())

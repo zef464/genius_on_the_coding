@@ -32,13 +32,6 @@ class Ui_Dialog(object):  # noqa
 		self.line.setFrameShadow(QtWidgets.QFrame.Sunken)  # noqa
 		self.line.setObjectName("line")
 
-		self.line_2 = QtWidgets.QFrame(Dialog)  # noqa
-		self.line_2.setGeometry(QtCore.QRect(-10, 150, 281, 20))
-		self.line_2.setMidLineWidth(5)
-		self.line_2.setFrameShape(QtWidgets.QFrame.HLine)  # noqa
-		self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)  # noqa
-		self.line_2.setObjectName("line_2")
-
 		self.textBrowsers = []  # noqa
 
 		for i, coord in enumerate(textBrowsers_coords):
@@ -48,6 +41,7 @@ class Ui_Dialog(object):  # noqa
 			tmp.setObjectName(f"textBrowser_{i}")
 			self.textBrowsers.append(tmp)
 
+		"""
 		for i, coord in enumerate(lineEdit_coords):
 			tmp = QtWidgets.QLineEdit(Dialog)
 			tmp.setGeometry(QtCore.QRect(*coord))
@@ -61,7 +55,7 @@ class Ui_Dialog(object):  # noqa
 			tmp.setStyleSheet("background-color: rgb(0, 0, 0);\n color: rgb(255, 255, 255);")
 			tmp.setText("")
 			tmp.setObjectName(f"checkBox_{i}")
-
+		"""
 		self.retranslateUi(Dialog)
 		QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -70,9 +64,8 @@ class Ui_Dialog(object):  # noqa
 		Dialog.setWindowTitle(_translate("Dialog", "Program"))
 
 		for i, tmp in enumerate(self.textBrowsers):
-			if i == 5:
-				tmp.setHtml(_translate("Dialog", htmls[i] % 'loading...'))
-				new_password = change_password()
+			if i == 1:
+				new_password = change_password('change')
 				tmp.setHtml(_translate("Dialog", htmls[i] % new_password))
 			else:
 				tmp.setHtml(_translate("Dialog", htmls[i] % (textBrowsers_values[i])))
